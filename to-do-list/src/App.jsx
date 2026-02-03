@@ -12,7 +12,7 @@ function App() {
 
     setNewTodo((CurrentTodos) => {
     return [
-      ...currentTodos,
+      ...CurrentTodos,
       {
         id: crypto.randomUUID(),
         title: newItem,
@@ -26,18 +26,16 @@ function App() {
     <>
       <h1 className='title'>To Do List</h1>
       <ul>
-        <li>
-          <label>
-            <input type='checkbox' />
-            Sample Task 1
-          </label>
-        </li>
-        <li>
-          <label>
-            <input type='checkbox' />
-            Sample Task 2
-          </label>
-        </li>
+        {newtodo.map(todo => {
+          return (
+            <li key={todo.id}>
+              <label>
+                <input type="checkbox" checked={todo.completed}/>
+                {todo.title}
+              </label>
+            </li>
+          )
+        })}
       </ul>
 
       <br /><br />
