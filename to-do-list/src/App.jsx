@@ -43,7 +43,7 @@ function App() {
         <div>
           <label htmlFor="item">New Item</label><br />
           <input value={newItem} onChange={e => setNewItem(e.target.value)} type="text" id='item' /> <br /> <br />
-          <button className='add-btn'>Add</button>
+          <button className='add-btn' >Add</button>
         </div>
       </form>
     </>
