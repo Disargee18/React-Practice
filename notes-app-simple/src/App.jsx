@@ -14,15 +14,15 @@ function App() {
     e.preventDefault();
     console.log(note);
 
-    setNewNotes((CurrentNotes) => {
-      return [
+    setNewNotes(CurrentNotes => 
+      [
         ...CurrentNotes,
         {
           id: crypto.randomUUID(),
           note: note
         }
       ]
-    })
+    );
   }
 
   return (
