@@ -47,24 +47,24 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col items-center m-10">
+      <div className="flex flex-col items-center m-10 text-white w-full h-full">
         <h1 className='font-bold text-2xl mb-10'>Expense Tracker</h1>
 
         <div className='flex justify-center items-center'>
           <form action="" className='flex flex-row gap-2' onSubmit={handleSubmit}>
-            <input type="text" name="expenseName" id="id" value={expenseForm.expenseName} onChange={handleChange} className='border border-black' placeholder='Expense Name' />
-            <input type="text" name="amount" id="id" value={expenseForm.amount} onChange={handleChange} className='border border-black' placeholder='Amount' />
-            <select type="text" name="category" id="id" value={expenseForm.category} onChange={handleChange} className='border border-black'>
+            <input type="text" name="expenseName" id="id" value={expenseForm.expenseName} onChange={handleChange} className='border border-white bg-black-200' placeholder='Expense Name' />
+            <input type="text" name="amount" id="id" value={expenseForm.amount} onChange={handleChange} className='border border-white bg-black-200' placeholder='Amount' />
+            <select type="text" name="category" id="id" value={expenseForm.category} onChange={handleChange} className='border border-white bg-black-200'>
               <option value="" disabled selected>Select Category</option>
-              <option value="transpo">Transportation</option>
-              <option value="food">Food</option>
-              <option value="date">Date</option>
-              <option value="savings">Savings</option>
-              <option value="orders">Orders</option>
-              <option value="other">Others</option>
+              <option value="Transportation">Transportation</option>
+              <option value="Food">Food</option>
+              <option value="Date">Date</option>
+              <option value="Savings">Savings</option>
+              <option value="Orders">Orders</option>
+              <option value="Others">Others</option>
             </select>
-            <input type="date" name="date" id="id" value={expenseForm.date} onChange={handleChange} className='border border-black' />
-            <button className='border border-black p-2' type="submit">Submit</button>
+            <input type="date" name="date" id="id" value={expenseForm.date} onChange={handleChange} className='border border-black bg-black-200' />
+            <button className='border border-black p-2 bg-blue-700' type="submit"><b>Submit</b></button>
           </form>
         </div>
 
@@ -79,14 +79,14 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                {submitExpense.map(expenseObj =>
-                  <ExpenseItem
-                    key={expenseObj.id}
-                    item={expenseObj}
-                  />
-                )}
-              </tr>
+
+              {submitExpense.map(expenseObj =>
+                <ExpenseItem
+                  key={expenseObj.id}
+                  item={expenseObj}
+                />
+              )}
+
             </tbody>
           </table>
         </div>

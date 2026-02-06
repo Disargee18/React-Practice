@@ -14,7 +14,7 @@ function App() {
     e.preventDefault();
     console.log(note);
 
-    setNewNotes(CurrentNotes => 
+    setNewNotes((CurrentNotes) => 
       [
         ...CurrentNotes,
         {
