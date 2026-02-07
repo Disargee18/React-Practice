@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import './App.css'
 import ExpenseItem from './components/ExpenseItem.jsx';
+import './App.css'
 
 function App() {
   const [expenseForm, setExpenseForm] = useState({
@@ -47,14 +47,14 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col items-center m-10 text-white w-full h-full">
+      <div className="flex flex-col items-center p-10 min-h-screen bg-base-300" data-theme="night">
         <h1 className='font-bold text-2xl mb-10'>Expense Tracker</h1>
 
         <div className='flex justify-center items-center'>
           <form action="" className='flex flex-row gap-2' onSubmit={handleSubmit}>
-            <input type="text" name="expenseName" id="id" value={expenseForm.expenseName} onChange={handleChange} className='border border-white bg-black-200' placeholder='Expense Name' />
-            <input type="text" name="amount" id="id" value={expenseForm.amount} onChange={handleChange} className='border border-white bg-black-200' placeholder='Amount' />
-            <select type="text" name="category" id="id" value={expenseForm.category} onChange={handleChange} className='border border-white bg-black-200'>
+            <input type="text" name="expenseName" id="id" value={expenseForm.expenseName} onChange={handleChange} className='border border-black' placeholder='Expense Name' />
+            <input type="text" name="amount" id="id" value={expenseForm.amount} onChange={handleChange} className='border border-black' placeholder='Amount' />
+            <select type="text" name="category" id="id" value={expenseForm.category} onChange={handleChange} className='border border-black'>
               <option value="" disabled selected>Select Category</option>
               <option value="Transportation">Transportation</option>
               <option value="Food">Food</option>
@@ -63,13 +63,12 @@ function App() {
               <option value="Orders">Orders</option>
               <option value="Others">Others</option>
             </select>
-            <input type="date" name="date" id="id" value={expenseForm.date} onChange={handleChange} className='border border-black bg-black-200' />
+            <input type="date" name="date" id="id" value={expenseForm.date} onChange={handleChange} className='border border-black' />
             <button className='border border-black p-2 bg-blue-700' type="submit"><b>Submit</b></button>
           </form>
         </div>
-
         <div>
-          <table className='table-auto border-seperate mt-10 w-[50rem]'>
+          <table className='table-auto border-seperate mt-10 w-[50rem] border border-black'>
             <thead>
               <tr>
                 <th>Expense Name</th>
@@ -79,7 +78,6 @@ function App() {
               </tr>
             </thead>
             <tbody>
-
               {submitExpense.map(expenseObj =>
                 <ExpenseItem
                   key={expenseObj.id}
