@@ -7,7 +7,7 @@ import beg from './assets/beg.webp'
 import MainpageContent from './components/MainpageContent.jsx'
 
 function App() {
-  const counter = 0;
+  const [counter, setCounter] = useState(0);
 
   const [content, setContent] = useState({
     image: rizz,
@@ -15,27 +15,32 @@ function App() {
   });
 
   const handleYes = () => {
-    setContent({
-      image: rizz2,
-      text: "Will you be my valentine? 🫦"
-    });
-    counter++;
+
+    if (counter >= 1) {
+      setContent({
+        image: rizz3,
+        text: "Yey!"
+      });
+    } else {
+      setContent({
+        image: rizz2,
+        text: "Will you be my valentine? 🫦"
+      });
+      setCounter(counter + 1);
+    }
   }
 
   const handleNo = () => {
-    setContent({
-      image: beg,
-      text: "PWEASE SAY YES 😩"
-    });
-  }
 
-  const handleNew = () => {
-    if(counter>2){
+    if (counter >= 1) {
+      setContent( content );
+    } else {
       setContent({
-        image: rizz3,
-        text: "I guess you don't want to be my valentine 😔"
+        image: beg,
+        text: "PWEASE SAY YES 😩"
       });
     }
+
   }
 
   return (
@@ -46,7 +51,7 @@ function App() {
           ifYes={handleYes}
           ifNo={handleNo}
         />
-        
+
 
       </div>
     </>
