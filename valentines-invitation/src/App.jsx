@@ -17,6 +17,12 @@
 
     const [isSuccess, setIsSuccess] = useState(false);
 
+   const handleSee = () => {
+    setIsSuccess(true);
+   }
+
+
+
     const [content, setContent] = useState({
       image: rizz,
       text: "Hey what’s up baby girl, are you free this saturday? 😉"
@@ -37,19 +43,25 @@
       }
     }
 
+    
 
     const handleYes = () => {
       if (counter >= 2) {
+        console.log(counter);
+      }
+      
+      else if (counter >= 1) {
         setContent({  
           image: rizz3,
           text: "Yey!"
         });
-        setIsSuccess(true);
-      } else {
+        console.log(counter);
+      } else if(counter === 0) {
         setContent({
           image: rizz2,
           text: "Will you be my valentine? 🫦"
         });
+        console.log(counter);
       }
       setCounter(counter + 1);
     }
@@ -58,6 +70,7 @@
 
       if (counter >= 2) {
         setContent(content);
+        setIsSuccess(true);
       } else {
         setContent({
           image: beg,
@@ -82,6 +95,8 @@
               item={content}
               ifYes={handleYes}
               ifNo={handleNo}
+              ifSuccess={counter >= 2}
+              ifSee={handleSee}
             />
           }
 
