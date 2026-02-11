@@ -1,7 +1,9 @@
+import { use, useState } from 'react'
+
 
 function MainpageContent({item, ifYes, ifNo}) {
     return (
-        <div className="mainpage-content flex flex-col items-center">
+        <div className=" flex flex-col items-center">
             <img src={item.image} alt="" className='h-60 m-5' />
             <p className='text-2xl m-5'>{item.text}</p>
             <div className='flex flex-row justify-between mt-10 gap-80'>
