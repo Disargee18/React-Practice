@@ -7,7 +7,8 @@ import farquad from './assets/farquad.jpg'
 
 function App() {
 
-  const [score, setScore] = useState(0);
+  const [shrekScore, setShrekscore] = useState(0);
+  const [farScore, setFarscore] = useState(0);
   const [box, setBoxes] = useState(Array(9).fill(""));
   const [turn, setTurn] = useState(0);
 
@@ -28,25 +29,32 @@ function App() {
 
     }
 
-    
+
     setBoxes(newBoxes);
     setTurn(turn + 1);
     checkWinner(newBoxes);
   }
-  
+
   const checkWinner = (box) => {
     const winningCombo = [
-      [0,1,2],[3,4,5],[6,7,8], // rows
-      [0,3,6],[1,4,7],[2,5,8], // columns
-      [0,4,8],[2,4,6] // diagonals
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+      [0, 4, 8], [2, 4, 6] // diagonals
     ]
 
-    
-    for(let i = 0; i<winningCombo.length; i++){
+
+    for (let i = 0; i < winningCombo.length; i++) {
       const [a, b, c] = winningCombo[i];
-      if(box[a] && box[a] === box[b] && box[a] === box[c])
-      {
-        setScore(score + 1);
+      if (box[a] && box[a] === box[b] && box[a] === box[c]) {
+        if (box[a] === shrek) {
+          setShrekscore(shrekScore + 1);
+          alert("Shrek wins!");
+        } else {
+          setFarscore(farScore + 1);
+          alert("Farquad wins!");
+        }
+        setBoxes(Array(9).fill(""));
+        setTurn(0);
       }
     }
   }
@@ -84,8 +92,8 @@ function App() {
           <div className='flex flex-col mt-15'>
             <h1 className='text-2xl my-5'>Points</h1>
             <div className='align'>
-              <p className='text-lg'>Shrek: {score}</p>
-              <p className='text-lg'>Mike: {score}</p>
+              <p className='text-lg'>Shrek: {shrekScore}</p>
+              <p className='text-lg'>Mike: {farScore}</p>
             </div>
 
           </div>
