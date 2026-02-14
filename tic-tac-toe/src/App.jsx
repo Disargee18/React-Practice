@@ -7,31 +7,51 @@ import farquad from './assets/farquad.jpg'
 
 function App() {
 
-  // const [count, setCount] = useState(0);
+  const [score, setScore] = useState(0);
   const [box, setBoxes] = useState(Array(9).fill(""));
   const [turn, setTurn] = useState(0);
 
 
 
   const handleClick = (value) => {
-    console.log(value);
+    // console.log(value);
     if (box[value])
       return;
 
     const newBoxes = [...box];
     if (turn % 2 == 0) {
       newBoxes[value] = shrek;
-      console.log("shrek");
+      // console.log("shrek");
     } else {
       newBoxes[value] = farquad;
-      console.log("farquad");
+      // console.log("farquad");
 
     }
+
+    
     setBoxes(newBoxes);
     setTurn(turn + 1);
+    checkWinner(newBoxes);
+  }
+  
+  const checkWinner = (box) => {
+    const winningCombo = [
+      [0,1,2],[3,4,5],[6,7,8], // rows
+      [0,3,6],[1,4,7],[2,5,8], // columns
+      [0,4,8],[2,4,6] // diagonals
+    ]
+
+    
+    for(let i = 0; i<winningCombo.length; i++){
+      const [a, b, c] = winningCombo[i];
+      if(box[a] && box[a] === box[b] && box[a] === box[c])
+      {
+        setScore(score + 1);
+      }
+    }
   }
 
-  
+
 
 
 
@@ -64,8 +84,8 @@ function App() {
           <div className='flex flex-col mt-15'>
             <h1 className='text-2xl my-5'>Points</h1>
             <div className='align'>
-              <p className='text-lg'>Shrek: </p>
-              <p className='text-lg'>Mike: 0</p>
+              <p className='text-lg'>Shrek: {score}</p>
+              <p className='text-lg'>Mike: {score}</p>
             </div>
 
           </div>
@@ -76,9 +96,9 @@ function App() {
         <h1 className='text-2xl'><b>tic-tac-toe</b></h1>
         <div className='grid grid-cols-3 gap-2'>
           {box.map((box, index) => (
-            <div 
+            <div
               className='w-20 h-20 border-2 border-black flex items-center justify-center text-4xl font-bold cursor-pointer'
-              onClick={() => handleClick(index)} 
+              onClick={() => handleClick(index)}
               key={index}>
               <img src={box} alt="" />
             </div>
