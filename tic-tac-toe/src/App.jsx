@@ -49,10 +49,17 @@ function App() {
         if (box[a] === shrek) {
           setShrekscore(shrekScore + 1);
           alert("Shrek wins!");
+          setBoxes(Array(9).fill(""));
+          setTurn(0);
         } else {
           setFarscore(farScore + 1);
           alert("Farquad wins!");
+          setBoxes(Array(9).fill(""));
+          setTurn(0);
         }
+
+      } else if (turn >= 9) {
+        // alert("It's a draw!");
         setBoxes(Array(9).fill(""));
         setTurn(0);
       }
