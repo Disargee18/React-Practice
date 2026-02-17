@@ -6,7 +6,27 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    /* Note: I added the specific axes for Bitcount so the variations actually work */
+    @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:slnt,CRSV,ELSH,ELXP@0,0.5,0,0&family=Luckiest+Guy&family=Lustria&display=swap');
+  </style>
+  <style type="text/tailwindcss">
+    @theme {
+    /* Define the font family */
+    --font-bitcount: "Bitcount Grid Double", system-ui;
+    /* This maps your Google Font to the 'font-serif' utility */
+    --font-serif: "Lustria", serif;
+    
+    /* This creates a brand new utility: 'font-luckiest' */
+    --font-luckiest: "Luckiest Guy", system-ui;
+  }
 
+  /* Create a custom utility that includes your specific settings */
+  @utility font-bit-grid {  
+    font-family: var(--font-bitcount);
+    font-variation-settings: "slnt" 0, "CRSV" 0.5, "ELSH" 0, "ELXP" 0;
+  }
+</style>
   <title>portfolio-react</title>
 </head>
 
