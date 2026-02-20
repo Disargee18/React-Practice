@@ -69,11 +69,24 @@ return (
           }}
           transition={{ duration: 5, ease: "easeOut", repeat: 2, delay: 1 }}
         ></motion.div>
-
       </motion.div>
       <motion.div variants={divVariant}
-        className='bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10'></motion.div>
-      <div className='bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10'></div>
+        className='bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10'>
+          <motion.button className='bg-emerald-600 w-1/2  py-4 rounded-lg text-2xl text-gray-100'
+            whileTap={{scale:0.9}}
+            whileHover={{scale: 1.1, color: 'black', backgroundColor: 'white'}}
+          >
+          Click Me</motion.button>
+        </motion.div>
+      <motion.div className='bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10'>
+        <motion.div className='w-1/3 h-1/3 bg-orange-500 rounded-3xl cursor-grab' 
+          drag 
+          dragConstraints={{ left: -100, right: 100, top: -100, bottom: 100 }}
+          dragTransition={{bounceDamping: 100}}
+        >
+
+        </motion.div>
+      </motion.div>
       <div className='bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10'></div>
       <div className='bg-slate-800 aspect-square rounded-lg justify-center flex items-center gap-10'></div>
     </motion.section>
