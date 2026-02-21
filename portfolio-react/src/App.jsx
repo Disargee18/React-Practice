@@ -1,18 +1,34 @@
+import './App.css'
+
 export default function App() {
   return (
     <>
-      <div className="flex flex-col  ">
-        <div className="flex flex-col items-center border border-black items-center">
-          <h1 className="m-10 text-6xl font-bitcount">Zibaldone on the Web</h1>
-        </div>
-        <div className="flex flex-col items-center items-center">
-          <p className="m-10 text-2xl font-serif text-center">a portfolio, not a journal. something in between my interests. zibaldone. a place to know me about me. this is a throwaway project meant to waste space. welcome and pls dont enjoy</p>
-          <h1 className="text-4xl pt-15 font-serif font-[1000]">anyways, things that i like that will kinda give you an idea of who i am:</h1>
-        </div>
-        <div className="flex flex-row items-center justify-center gap-50 m-5 py-13 border border-black">
-          <div className="h-100 w-100 bg-blue-900 flex items-center justify-center">MUSIC</div>
-          <div className="h-100 w-100 bg-violet-900 flex items-center justify-center">SHOWS n MOVIES</div>
-          <div className="h-100 w-100 bg-red-900 flex items-center justify-center">MY GF</div>
+      <div className='flex items-center justify-center h-screen w-screen'>
+        <div className="carousel rounded-box w-1/2">
+          <div className="carousel-item w-full bg-blue-950 h-100 flex items-center justify-center text-white text-5xl font-bold tracking-wider">
+            <h1>this is arji, an inspiring web developer</h1>
+          </div>
+          <div className="carousel-item w-full bg-blue-900 h-100 flex items-center text-white text-2xl leading-15 tracking-wider">
+            <ol className='list-disc pl-10'>
+              <li>studying BSIT in UCLM</li>
+              <li>react enthusiast</li>
+              <li>java amateur</li>
+              <li>love for unique UI/UX</li>
+              <li>love n hate relationship with vibe-coding</li>
+              <li>pls hire me</li>
+            </ol>
+          </div>
+          <div className="carousel-item w-full bg-blue-800 h-100 flex items-center text-white text-2xl leading-20 tracking-wider">
+            <ol className='list-disc pl-10'>
+              <li>i want to create a startup that could help people.</li>
+              <li>coding lets me believe that anything could be possible </li>
+              <li>i want to help companies improve their product through my service.</li>
+              <li>i have a deep love for abstract things. </li>
+            </ol>
+          </div>
+          <div className="carousel-item w-full bg-blue-700 h-100 flex items-center justify-center">
+            <h1>Hello World</h1>
+          </div>
         </div>
       </div>
     </>
