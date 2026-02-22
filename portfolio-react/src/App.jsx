@@ -3,6 +3,19 @@ import './App.css'
 export default function App() {
   return (
     <>
+      <MainUI/>
+    </>
+  )
+
+
+
+
+
+
+
+  
+  function MainUI(){
+    return(
       <div className='flex flex-col items-center justify-center h-screen w-screen'>
         <div className="carousel rounded-box w-1/2">
           <div id='item1' className="carousel-item w-full bg-blue-950 h-100 flex items-center justify-center text-white text-5xl font-bold tracking-wider">
@@ -43,6 +56,6 @@ export default function App() {
         </div>
 
       </div>
-    </>
-  )
+    )
+  }
 }
