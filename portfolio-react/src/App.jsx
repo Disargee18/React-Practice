@@ -1,79 +1,83 @@
 import { useState } from 'react'
 import './App.css'
+import { delay, motion } from 'framer-motion'
 
 export default function App() {
   return (
     <>
       <div className='flex flex-col items-center justify-center h-screen w-screen'>
-        <MainUI />
-        {/* <StackedDivUI/> */}
+        <CardStack />
       </div >
     </>
   )
 
+  function CardStack() {
 
+    // const [count, setCount] = ('z-0');
 
+    const [activeID, setActiveID] = useState(0);
 
+    const handleActiveID = (id) => {
+      setActiveID(id);
+      console.log('This is ' + id);
+    }
 
+    // const handleButton = (id) => {
+    //   console.log('hello world '+id);
+    // }
 
+    const buttons = ['btn1', 'btn2', 'btn3', 'btn4'];
+    const colorblocks = [
+      'bg-blue-700',
+      'bg-red-700',
+      'bg-green-700',
+      'bg-purple-700'
+    ]
 
-
-  function MainUI() {
     return (
       <>
-        <div className="carousel rounded-box w-1/2">
-          <div id='item1' className="carousel-item w-full bg-blue-950 flex items-center justify-center text-white text-5xl font-bold tracking-wider">
-            <h1>this is arji, an inspiring web developer</h1>
-          </div>
-          <div id='item2' className="carousel-item w-full bg-blue-900 flex items-center text-white text-2xl leading-15 tracking-wider shadow-lg">
-            <ol className='list-disc pl-10'>
-              <li>studying BSIT in UCLM</li>
-              <li>react enthusiast</li>
-              <li>java amateur</li>
-              <li>love for unique UI/UX</li>
-              <li>love n hate relationship with vibe-coding</li>
-              <li>pls hire me</li>
-            </ol>
-          </div>
-          <div id='item3' className="carousel-item w-full bg-blue-800 h-100 flex items-center text-white text-2xl leading-20 tracking-wider shadow-xl">
-            <ol className='list-disc pl-10'>
-              <li>i want to create a startup that could help people.</li>
-              <li>coding lets me believe that anything could be possible </li>
-              <li>i want to help companies improve their product through my service.</li>
-              <li>i have a deep love for abstract things. </li>
-            </ol>
-          </div>
-          <div id='item4' className="carousel-item w-full bg-blue-700 h-100 flex items-center text-white text-2xl leading-20 tracking-wider">
-            <ol className='list-disc pl-10'>
-              <li>Reach me through my links below</li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ol>
-          </div>
+          <div className='h-1/2 w-1/2 rounded-4xl relative'>
+          {colorblocks.map((colors, index) => {
+            const isActive = index === activeID;
+
+            return (
+              <motion.div
+                key={index}
+                animate={{
+                  zIndex: isActive ? 40 : 10 - index,
+                  y: isActive ? -10 : index * 8,
+                  scale: isActive ? 1 : 0.95,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                }}
+                className={`h-full w-full rounded-4xl flex items-center justify-center absolute top-0 shadow-xl ${colors}`}
+              >
+                <h1 className="text-white text-2xl font-bold">
+                  Card {index + 1}
+                </h1>
+              </motion.div>
+            );
+          })}
         </div>
-        <div className="flex w-full justify-center gap-5 py-5">
-          <a href="#item1" className="btn btn-s">1</a>
-          <a href="#item2" className="btn btn-s">2</a>
-          <a href="#item3" className="btn btn-s">3</a>
-          <a href="#item4" className="btn btn-s">4</a>
+
+          <div className='flex flex-row gap-10 m-10'>
+            {buttons.map((id, index) => (
+              <button
+                key={id}
+                className='btn btn-white'
+                onClick={() => handleActiveID(index)}
+              >{index + 1}</button>
+            ))}
+
         </div>
-      </>
-
-    )
-  }
-
-  function StackedDivUI()
-  {
-
-    const [contDiv, setDiv] = useState(true);
-
-    return(
-      <>
-        {contDiv ? (<h1>Hello</h1>) : (<h2>Wow</h2>)}
-        
-        <button onClick={set}>On</button>
       </>
     )
   }
+
+  
+
+
 }
