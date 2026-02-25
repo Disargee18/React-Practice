@@ -34,9 +34,15 @@ export default function App() {
       'bg-purple-700'
     ]
 
+    const text = ['this is arji an aspiring software dev', 'a student of BSIT in UCLM', 'react enthusiast', 'i want to create a unique app that can help people'];
+
+    // const arrayText = [
+    //   texts1{t1: 'sdsdg', t2: 'adsf', t3: 'kjh'},
+    //   texts2{t1: 'w54er', t2: '43sga', t3: '23sd', t4: 'asdfljk'}
+    // ]
     return (
       <>
-          <div className='h-1/2 w-1/2 rounded-4xl relative'>
+          <div className='h-70 w-200 rounded-4xl relative'>
           {colorblocks.map((colors, index) => {
             const isActive = index === activeID;
 
@@ -56,7 +62,7 @@ export default function App() {
                 className={`h-full w-full rounded-4xl flex items-center justify-center absolute top-0 shadow-xl ${colors}`}
               >
                 <h1 className="text-white text-2xl font-bold">
-                  Card {index + 1}
+                  {text[index]}
                 </h1>
               </motion.div>
             );
@@ -77,7 +83,9 @@ export default function App() {
     )
   }
 
-  
+  function Texts(){
+
+  }
 
 
 }
