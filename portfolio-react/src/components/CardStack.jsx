@@ -1,13 +1,17 @@
+import Buttons from './Buttons.jsx'
+import { useState } from 'react'
+import { motion } from 'framer-motion';
+
 function CardStack() {
 
     // const [count, setCount] = ('z-0');
 
     const [activeID, setActiveID] = useState(0);
 
-    const handleActiveID = (id) => {
-      setActiveID(id);
-      console.log('This is ' + id);
-    }
+    // const handleActiveID = (id) => {
+    //   setActiveID(id);
+    //   console.log('This is ' + id);
+    // }
 
     // const handleButton = (id) => {
     //   console.log('hello world '+id);
@@ -55,9 +59,9 @@ function CardStack() {
             );
           })}
         </div>
-        <Buttons buttons={colorblocks} activeID={setActiveID}/>
+        <Buttons buttons={buttons} activeID={activeID} setActiveID={setActiveID}/>
       </>
     )
   }
 
-  export default CardStack
+ export default CardStack

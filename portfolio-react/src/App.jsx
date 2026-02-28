@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import { delay, motion } from 'framer-motion'
-import Buttons from './components/Buttons'
+import { motion } from "framer-motion";
+import CardStack from "./components/CardStack.jsx";
 
 export default function App() {
   return (
