@@ -11,16 +11,18 @@ function CardStack() {
     'bg-green-700',
     'bg-purple-700',
     'bg-yellow-700',
-    'bg-slate-900' // Final "Reset" Card
+    'bg-orange-700',
+    'bg-slate-700' // Final "Reset" Card
   ];
 
-  const text = [
-    '-Yo, this is arji i\'m an aspiring software dev studying BSIT in uclm. ',
-    '-I want to be able to create unique apps that can help people',
-    '-I love thinking of new startup ideas',
-    '-My greatest asset is my ability to communicate my thoughts',
-    '-I\'m currently learning AI concepts, database, and better UIs',
-    'Know me again?' // Text for the final card
+  const textData = [
+    ["Yo, this is arji i'm an aspiring software dev studying BSIT in UCLM."],
+    ["I want to be able to create unique apps that can help people"],
+    ["I love thinking of new startup ideas"],
+    ["My greatest asset is my ability to communicate my thoughts"],
+    ["Learning AI concepts", "Database management", "Better UI/UX designs"],
+    ["Github.com",  "LinkedIn", "Email", "Instagram"],
+    ["Know me again?"]
   ];
 
   const handleScroll = (e) => {
@@ -37,7 +39,7 @@ function CardStack() {
 
     setTimeout(() => {
       isScrolling.current = false;
-    }, 600); 
+    }, 600);
   };
 
   // Function to jump back to the start
@@ -46,7 +48,7 @@ function CardStack() {
   };
 
   return (
-    <div 
+    <div
       onWheel={handleScroll}
       className='h-80 w-120 rounded-4xl relative cursor-ns-resize flex items-center justify-center'
       style={{ perspective: '1000px' }}
@@ -72,9 +74,22 @@ function CardStack() {
             }}
             className={`h-64 w-full rounded-4xl flex flex-col justify-center absolute shadow-2xl p-8 text-left ${colors}`}
           >
-            <h1 className="text-white text-2xl font-bold white-space:pre-line">
-              {text[index]}
-            </h1>
+            <div className="text-white text-left">
+              {/* If the array has more than 1 item, show bullets. Otherwise, show plain text. */}
+              {textData[index].length > 1 ? (
+                <ul className="list-disc list-inside space-y-2">
+                  {textData[index].map((item, i) => (
+                    <li key={i} className="text-xl font-medium leading-tight">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <h1 className="text-2xl font-bold leading-snug">
+                  {textData[index][0]}
+                </h1>
+              )}
+            </div>
 
             {/* Render the Reset Option only on the last card */}
             {isLastCard && isActive && (
@@ -90,12 +105,12 @@ function CardStack() {
           </motion.div>
         );
       })}
-      
+
       {/* Visual Indicator */}
       <div className="absolute -bottom-12 text-gray-500 text-xs font-mono">
-        {activeID === colorblocks.length - 1 
-          ? "END OF STACK" 
-          : `SCROLL TO EXPLORE • ${activeID + 1}/${colorblocks.length}`}
+        {activeID === colorblocks.length - 1
+          ? "END OF STACK"
+          : `• ${activeID + 1}/${colorblocks.length}`}
       </div>
     </div>
   );
