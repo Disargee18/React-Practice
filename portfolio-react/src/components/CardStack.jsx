@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function CardStack() {
@@ -6,13 +6,13 @@ function CardStack() {
   const isScrolling = useRef(false);
 
   const colorblocks = [
-    'bg-blue-700',
-    'bg-red-700',
-    'bg-green-700',
-    'bg-purple-700',
-    'bg-yellow-700',
-    'bg-orange-700',
-    'bg-slate-700' // Final "Reset" Card
+    'bg-[#020617]',
+    'bg-[#0F172A]',
+    'bg-[#1E1B4B]',
+    'bg-[#1D4ED8]',
+    'bg-[s#701A75]',
+    'bg-[#78350F]',
+    'bg-[#FDE047]' // Final "Reset" Card
   ];
 
   const textData = [
@@ -72,7 +72,7 @@ function CardStack() {
               stiffness: 260,
               damping: 25,
             }}
-            className={`h-64 w-full rounded-4xl flex flex-col justify-center absolute shadow-2xl p-8 text-left ${colors}`}
+            className={`h-64 w-full rounded-4xl flex flex-col justify-center absolute shadow-2xl p-8 text-left ${colors} border border-white`}
           >
             <div className="text-white text-left">
               {/* If the array has more than 1 item, show bullets. Otherwise, show plain text. */}
