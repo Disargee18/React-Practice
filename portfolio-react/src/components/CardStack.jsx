@@ -6,13 +6,13 @@ function CardStack() {
   const isScrolling = useRef(false);
 
   const colorblocks = [
-    'bg-[#020617]',
-    'bg-[#0F172A]',
-    'bg-[#1E1B4B]',
-    'bg-[#1D4ED8]',
-    'bg-[s#701A75]',
-    'bg-[#78350F]',
-    'bg-[#FDE047]' // Final "Reset" Card
+    'bg-black',
+    'bg-black',
+    'bg-black',
+    'bg-black',
+    'bg-black',
+    'bg-black',
+    'bg-black' // Final "Reset" Card
   ];
 
   const textData = [
